@@ -3,4 +3,6 @@ cd simple-weather
 expo start
 
 
-https://expo.github.io/vector-icons/
+# https://expo.github.io/vector-icons/
+
+# https://openweathermap.org/api
