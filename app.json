@@ -23,7 +23,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "io.camon85.simpleweather"
+    },
+    "android": {
+      "package": "io.camon85.simpleweather"
     }
   }
 }
