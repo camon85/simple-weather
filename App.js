@@ -29,19 +29,23 @@ export default class App extends Component {
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${API_KEY}`)
     .then(response => response.json())
     .then(json => {
+      console.log(json);
       this.setState({
-        temperature: json.temp,
+        temperature: json.main.temp,
         name: json.weather[0].main,
         isLoaded: true
       });
     });
   }
   render() {
-    const {isLoaded, error} = this.state;
+    const {isLoaded, error, name, temperature} = this.state;
     return (
       <View style={styles.container}>
         <StatusBar hidden={true}/>
-        {isLoaded ? <Weather/> : (
+        {isLoaded ? 
+          <Weather 
+            weatherName={name} 
+            temperature={Math.floor(temperature - 273.15)}/> : (
           <View style={styles.loading}>
             <Text style={styles.loadingText}>Getting the weather</Text>
             {error ? <Text style={styles.errorText}>{error}</Text> : null}
